@@ -1,0 +1,23 @@
+{
+  "name": "ponysay.ml",
+  "version": "1.0.0",
+  "description": "The server side for the ponysay.ml project",
+  "main": "src/index.js",
+  "repository": "https://github.com/felixfong227/resful-ponysay",
+  "author": "Felix Fong <moongod101@hotmail.com> (https://felixfong227.ml)",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node src/index.js",
+    "dev:docker": "docker run -it -p 3000:3000 -v $(pwd):/app --rm moongod101/resful-ponysay bash",
+    "dev:docker:server": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "fastify": "^1.2.1",
+    "fastify-formbody": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
