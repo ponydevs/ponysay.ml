@@ -9,9 +9,9 @@ fastify.get('*', async function (req, res) {
     if (req.headers && req.headers['user-agent'] && !req.headers['user-agent'].includes('curl')) {
         res.type('Content-Type: text/html; charset=utf-8');
         return `Use your terminal, not your browser silly ლ(ಠ益ಠლ)
-https://github.com/felixfong227/resful-ponysay`
+https://github.com/ponydevs/ponysay.ml`
     } else {
-        return `RESful Ponysay is work just fine (づ￣ ³￣)づ go have some fun will ya?
+        return `Ponysay.ml is work just fine (づ￣ ³￣)づ go have some fun will ya?
 Oh by the way, don't forogt to put the -X POST at the Curl command (¬‿¬)`;
     }
 });
@@ -21,14 +21,14 @@ fastify.post('/', async (req, res) => {
         return {
             question: 'Are you using Postman or something like that lol',
             message: 'Go, have some fun with your Curl command and the Terminal will ya?',
-            github: 'https://github.com/felixfong227/resful-ponysay',
+            github: 'https://github.com/ponydevs/ponysay.ml',
 
         }
     } else {
         // Is a Curl command
         if (req.body && !req.body.say || !req.body) {
             return `You didn\'t say anything at all ლ(ಠ益ಠლ)
-Example Command: curl -X POST -d 'say=I love ponies' https://ponysay.live`;
+Example Command: curl -X POST -d 'say=I love ponies' http://ponysay.ml`;
         }
         // Ready to call the Ponysay command
         let trying = true;
