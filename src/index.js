@@ -1,7 +1,9 @@
 const fastify = require('fastify')();
 const spawn = require('child_process').spawnSync;
 
-fastify.register(require('fastify-formbody'))
+fastify.register(require('fastify-formbody'));
+
+const github = 'https://github.com/ponydevs/ponysay.ml';
 
 require('dotenv').config();
 
@@ -21,7 +23,7 @@ fastify.post('/', async (req, res) => {
         return {
             question: 'Are you using Postman or something like that lol',
             message: 'Go, have some fun with your Curl command and the Terminal will ya?',
-            github: 'https://github.com/ponydevs/ponysay.ml',
+            github,
 
         }
     } else {
@@ -51,6 +53,7 @@ Example Command: curl -X POST -d 'say=I love ponies' http://ponysay.ml`;
                 }
             }
             res.header('X-Said', req.body.say);
+            res.header('X-GitHub-Repo': github);
             return output;
         } catch (error) {
             return `Opps, something when wrong while calling the ponysay command ( ⚆ _ ⚆ )
